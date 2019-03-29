@@ -54,9 +54,10 @@ $(document).ready(function() {
         var packet = animals[Math.floor(Math.random()*animals.length)];
         var word = packet[0];
         var guesses = [];
+        var numCorrect = 0;
         var wins = 0;
         var losses = 0;
-        var guessesRemaining = 13;
+        var guessesRemaining = 7;
 
         //INITIAL PAGE BUILD
         buildPage();
@@ -69,6 +70,23 @@ $(document).ready(function() {
             guesses.push(entry);
 
             //update incorrect guesses
+            if (!word.includes(entry) && guessesRemaining > 0){
+                guessesRemaining--;
+            }
+            else if (!word.includes(entry)){
+                loseCondition();
+            }
+            if(word.includes(entry)){
+                //checks for repeating letters
+                for(var i = 0; i < word.length; i++){
+                    if(word[i] == entry){
+                        numCorrect++;
+                    }
+                }
+            }
+            if(numCorrect == word.length){
+                winCondition();
+            }
             //update correct guess using show word function
 
             //onclick hint button display image using link in nested array
@@ -117,6 +135,23 @@ $(document).ready(function() {
             $("#guessed-letters").empty();
             $("#wins-losses").empty();
         }
-
+        function loseCondition(){
+            losses++;
+            guessesRemaining = 7;
+            packet = animals[Math.floor(Math.random()*animals.length)];
+            word = packet[0];
+            guesses = [];
+            numCorrect = 0;
+            //clear hint image
+        }
+        function winCondition(){
+            wins++;
+            guessesRemaining = 7;
+            packet = animals[Math.floor(Math.random()*animals.length)];
+            word = packet[0];
+            guesses = [];
+            numCorrect = 0;
+            //clear hint image
+        }
     }
 });

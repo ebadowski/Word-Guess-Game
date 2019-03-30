@@ -124,7 +124,13 @@ function loseCondition() {
     clickedHint = false;
 }
 function winCondition() {
-    wins++;
+    if(clickedHint){
+        wins+= 0.5;
+    }
+    else{
+        wins++;
+    }
+    
     guessesRemaining = 7;
     packet = animals[Math.floor(Math.random() * animals.length)];
     word = packet[0];

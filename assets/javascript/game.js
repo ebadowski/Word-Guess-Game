@@ -46,7 +46,7 @@ $(document).ready(function () {
 
 
     startGame();
-
+    
     //Game starts with user inputing letter
     document.onkeyup = function (event) {
         //add keystroke to guess list
@@ -174,7 +174,7 @@ function buildPage() {
     //only add hint button if it hasn't been clicked that round
     if (!clickedHint) {
         $("#hint").empty();
-        var hintButton = $("<button class=\"hint-button\" function=\"clickHint()\">");
+        var hintButton = $("<button class=\"hint-button\">");
         $(hintButton).text("HINT");
         $("#hint").append(hintButton);
         clickHint();

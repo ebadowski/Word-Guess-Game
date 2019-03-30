@@ -1,0 +1,31 @@
+body{
+    font-family: 'Special Elite', cursive;
+}
+.start-button{
+    width: 150px;
+    height: 150px;
+    margin-top: 80px;
+    font-family: 'Special Elite', cursive;
+    font-size: 20px;
+}
+.hint-button{
+    width: 150px;
+    height: 150px;
+    background-color: rgba(0, 0, 255, 0.5);
+    font-family: 'Special Elite', cursive;
+    font-size: 20px;
+}
+#game{
+    background-image: url("../images/gameBackground.jpg");
+    width: 466px ;
+    height: 310px;
+    
+}
+#content{
+    width: 100%;
+    position: relative;
+    text-align: center;
+}
+#current-word{
+    padding-top: 10px;
+}
